@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Minima Gem's Readme
+title: Minima
 name: Documentation for minima
 type: APIReference
 links :

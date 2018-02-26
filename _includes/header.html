@@ -30,25 +30,3 @@
     {% endif %}
   </div>
 </header>
-
-<!-- danyn -->
-<!-- css docs navigation -->
-<nav>
-  <h2>CSS</h2>
-  <ul>
-    {% for example in site.cssDocs %}
-    <li><a href="{{example.url}}"> {{example.title}} </a> </li>
-    {% endfor %}
-  </ul>
-</nav>
-
-<!-- react docs navigation -->
-
-<nav>
-  <h2>React</h2>
-  <ul>
-    {% for example in site.reactDocs %}
-      <li><a href="{{ example.url }}"> {{example.title}} </a></li>
-    {% endfor %}
-  </ul>
-</nav>

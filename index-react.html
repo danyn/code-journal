@@ -1,0 +1,12 @@
+---
+layout: page
+title: React
+---
+
+<div class="example-cards">
+
+    {% for example in site.reactDocs %}
+      <div><a href="{{ example.url }}"> {{example.title}} </a></div>
+    {% endfor %}
+
+</div>
