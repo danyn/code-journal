@@ -32,26 +32,11 @@
 </header>
 
 <!-- danyn -->
-<style media="screen">
 
-</style>
-<!-- css docs navigation -->
-<nav class="collection-nav">
-  <h2>CSS</h2>
-  <ul>
-    {% for example in site.cssDocs %}
-    <li><a href="{{example.url}}"> {{example.title}} </a> </li>
-    {% endfor %}
-  </ul>
-</nav>
-
-<!-- react docs navigation -->
-
-<nav class="collection-nav">
-  <h2>React</h2>
-  <ul>
-    {% for example in site.reactDocs %}
+{% for collection in site.collections %}
+  {% for example in collection.docs %}
+    {% if page.url contains example.collection %}
       <li><a href="{{ example.url }}"> {{example.title}} </a></li>
-    {% endfor %}
-  </ul>
-</nav>
+  {% endif %}
+  {% endfor %}
+{% endfor %}
