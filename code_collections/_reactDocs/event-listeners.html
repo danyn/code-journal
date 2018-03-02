@@ -1,0 +1,43 @@
+---
+layout: code-collection
+title: Event Listeners
+---
+
+<div class="container">
+  <h3>Event Listners are registered right on the elements in JSX</h3>
+  <p>Becuase JSX uses an html like syntax it means that html attributes are used to register events.  That is nice because we can see the functions which are bound to events by reading the JSX expressions</p>
+
+  <p>React makes sure events have consistent properties across browsers.  JSX camelCases the html event attributes it supports. onclick would be onClick in JSX</p>
+
+  <p> See: <a href="https://reactjs.org/docs/events.html#supported-events" target="_blank">React's Supported Events</a> </p>
+
+  <p> See: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute" target="_blank">element.setAttribute</a> </p>
+
+  <p> See: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/target" target="_blank">Event.taget</a> </p>
+  {%highlight JSX %}
+  app.js --
+
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+
+  //use jsx to register the event
+  const myJSXElem = (
+    <img src='https://puppy.jpg' onClick={swapImg} />
+  );
+
+  const pic = {
+    img : 'https://cdn/really-cute-puppy.jpg',
+    alt : 'cute puppy'
+    }
+
+  function swapImg(e){
+    e.target.setAttribute('src', pic.img);
+
+    e.target.setAttribute('alt', pic.alt);
+
+
+  }
+
+  {% endhighlight %}
+
+</div><!-- container -->

@@ -1,0 +1,56 @@
+---
+layout: code-collection
+title: Arrays and map
+---
+
+<div class="container">
+  <h3>Arrays and map are useful and work well with JSX </h3>
+  <p>In JSX whole arrays can be expanded in place with no explicit iterator</p>
+
+  <div class="code-example">
+
+  {% highlight JSX %}
+    app.js --
+
+    //an array of jsx expressions
+    const menuItems = [
+      <li>quiche<\li>,
+      <li>carrot soup<\li>,
+      <li>steak and lobster<\li>,
+      <li>ceasar salad<\li>,
+      <li>fruit flan<\li>
+    ];
+
+    const menu = (
+      <ul className="menu">
+        {menuItems}
+      </ul>
+    );
+
+  {% endhighlight %}
+  </div> <!-- code-example -->
+</div> <!-- container -->
+
+<div class="container">
+  <h3>Map can be used with arrays of string to build arrays of jsx expressions</h3>
+  <p> Note that {} are used to insert js varaiables and operators while the JSX expression are never wrapped in quotes </p>
+  <p> The key attribute is optional and is used internally by React to preserve state on list items</p>
+  <p> Whenever a list is to be sorted or altered based on some logic key is needed</p>
+  <div class="code-example">
+    {% highlight JSX %}
+      app.js--
+
+      const menuItems = [
+      'quiche',
+      'carrot soup',
+      'steak and lobster',
+      'ceaser salad',
+      'fruit flan'
+      ];
+
+      menuItems.map((item, i) =>{
+        <li key={ 'item_' + i }>{item}</li>
+      });
+    {% endhighlight %}
+  </div>
+</div>

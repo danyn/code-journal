@@ -1,0 +1,54 @@
+---
+layout: code-collection
+title: Conditionals in JSX
+---
+
+<div class="container">
+  <h3>Conditionals cannot be nested in JSX</h3>
+  <p>Just make sure to include conditional logic outside of JSX expressions</p>
+
+  {% highlight JSX %}
+  app.js --
+
+  let button;
+
+  if (user.registered){
+  button = <button> Thanks for registering </button>
+  }else{
+  button = <button> Click here to register</button>
+  }
+
+  {% endhighlight %}
+
+</div><!-- container -->
+
+<div class="container">
+  <h3>The ternary operator can still be used when inside of {} as usual javascript</h3>
+  <p>This makes it easy to assign conditional content inside of a JSX expression</p>
+
+  {% highlight JSX %}
+
+    const button = (
+    <button>
+      {user.registered ? 'Thanks for registering'  : 'Click here to register' }
+    </button>
+    );
+
+  {% endhighlight %}
+</div><!-- container  -->
+
+<div class="container">
+  <h3>In javascript true && 'puppy' returns 'puppy'</h3>
+  <p>This is used often in JSX as a conditional assignment inside of {}</p>
+  {% highlight JSX %}
+  app.js --
+
+    const Menu = (
+      <li>carrot soup</li>
+      <li>caviar pie</li>
+      {!isVegeterian && <li>Steak and Lobster</li> }
+      <li>fruit flan</li>
+    );
+
+  {% endhighlight %}
+</div><!-- container -->

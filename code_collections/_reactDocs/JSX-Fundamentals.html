@@ -1,0 +1,136 @@
+---
+title: JSX Basics
+layout: code-collection
+---
+
+<div class="container">
+  <h2> JSX is a syntax extension for javascript</h2>
+  <p>Because JSX is a syntax extension for javascript IT IS NOT valid javascript.  It must be compiled into valid javascript!</p>
+  <p>It provides a clear syntax and improved performance for manipulating the
+    <a
+     href="https://www.w3schools.com/js/js_htmldom.asp"
+     target="_blank">DOM </a>
+   </p>
+
+</div>
+
+<div class="container">
+  <h3>JSX elements are almost identical to HTML.</h3>
+  <div class="code-example">
+
+    {% highlight JSX %}
+    - app.js -
+
+    <p>This is valid JSX</p>
+
+
+    JSX can still be stored in javascript data structures such as
+    arrays, objects and variables, and can be arguments to functions!
+
+    const localTeam = <h1>Victoria Royals</h1>;
+
+    //notice the JSX element do not require quotes even when
+    //inside an object like this
+    const victoriaRoyals = {
+      center: <li>Matthew Phillips</li> ,
+      left-wing: <li>Igor Martynov</li>,
+      right-wing: <li>D-Jay Jerome</li>
+    };
+
+    {%endhighlight%}
+
+  </div>
+
+  <div class="container">
+    <h3>JSX elements can have attributes and can be nested. Most attributes are the same. However, class is className as class is a key word in javascript</h3>
+    <p>There must be a parent element that wraps the nested JSX elements here .pet-card is the parent and containing jsx element</p>
+    <div class="code-example">
+      {% highlight html %}
+      app.js --
+
+      const puppy = (
+      <div className="pet-card">
+        <h3>Kelly's Puppy!</h3>
+        <img src="images/pup.jpeg"
+             alt="puppy"
+             height="400px" />
+      </div>
+
+      );
+      {%endhighlight%}
+    </div>
+    </div> <!-- container -->
+
+    <div class="container">
+      <h3>It is convenient to store attribute values in javacript data structures</h3>
+
+      <p>JSX allows you to use javascript within its own syntax using {} </p>
+
+      <p>This is what allows using js data structers and math operations within JSX expressions </p>
+
+      <div class="code-example">
+        {% highlight html %}
+          app.js --
+
+          //js data structure
+          const pics = {
+            dog:'http://someCDN/puppy.jpg',
+            cat:'http://someCDN/kitty.jpg'
+          }
+
+          //reference js objects, or any (Classes, math, ..) in JSX using {}
+          //notice the attribute values when given this way
+          //do not require quotes - JSX compiler inserts them.
+          const puppy = (
+            <img
+              src={pics.dog}
+              alt="some cute puppy" />
+          );
+
+
+
+        {% endhighlight %}
+      </div>
+    </div><!-- container  -->
+
+    <div class="container">
+      <h3>JSX is itself a convenience syntax which compiles to React.creatElement(,,)</h3>
+      <div class="code-example">
+        {% highlight JSX %}
+          app.js--
+
+          //JSX syntax
+          const myH1 = <h1>Hello</h1>;
+
+          //React methods
+          const myH1 = React.createElement("h1",null,"Hello");
+
+          //JSX looks much better for longer strings of HTML
+          //white space and tab indentation make the code readable
+
+
+        {% endhighlight %}
+      </div>
+    </div><!-- container -->
+    <div class="container">
+      <div class="code-example">
+        <h3>Rendering is the act of making the jsx elements appear on screen</h3>
+        <p>React uses a virtual DOM and a diff tool so that it will only update the DOM when there is a change.  So calling render twice between unchanged DOMs will do nothing!</p>
+        <p>Assuming there is a div in the html called #app</p>
+
+        {% highlight javascript %}
+          app.js --
+
+          import React from 'react';
+          import ReactDOM from 'react-dom';
+
+          const app = document.getElementById('#app');
+
+          ReactDOM.render(puppy, app);
+        {% endhighlight %}
+
+      </div>
+    </div> <!-- container  -->
+
+
+</div>
